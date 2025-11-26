@@ -1,19 +1,22 @@
 import express from "express";
 import Todo from "../models/TodoModel.js";
-import { createTask, deleteTask, getAllTasks, updateTask } from "../controllers/TodoController.js";
+import { createTask, deleteTask, getAllTasks, getTaskById, updateTask } from "../controllers/TodoController.js";
 
 const router = express.Router();
 
 // Create Task
-router.post("/", createTask);
+router.post("/todo", createTask);
 
 // Display Task
-router.get("/", getAllTasks);
+router.get("/todos", getAllTasks);
+
+//Display Specific Task
+router.get("/todo/:id", getTaskById)
 
 // Update Task
-router.put("/:id", updateTask );
+router.put("/todo/:id", updateTask );
 
 // Delete Task
-router.delete("/:id", deleteTask);
+router.delete("/todo/:id", deleteTask);
 
 export default router;
