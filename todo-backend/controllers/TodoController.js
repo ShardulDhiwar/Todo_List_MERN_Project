@@ -30,8 +30,8 @@ export const createTask = async (req, res) => {
 }
 export const updateTask = async (req, res) => {
     try {
-        const {id} = req.params
-        const todos = await TodoModel.findByIdAndUpdate(id);
+        const { id } = req.params
+        const todos = await TodoModel.findByIdAndUpdate(id, req.body, {new:true});
         res.json(todos);
     } catch (error) {
         res.status(500).json({ error: error.message });
