@@ -1,9 +1,9 @@
 import React from "react";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, onEdit, onDelete, viewTask }) => {
   return (
     <>
-      <div className="flex items-start justify-between p-4 rounded-4xl mb-3 shadow-lg border-y-teal-600">
+      <div className="flex items-start justify-between border-2 border-gray-300 border-opacity-0 p-4 rounded-4xl mb-3 shadow-lg">
         {/* left part */}
         <div className="flex items-center gap-3">
           <input
@@ -19,13 +19,22 @@ const TaskItem = ({ task }) => {
         </div>
         {/* Right part */}
         <div>
-          <button className="bg-green-100 hover:bg-green-600 p-2 m-2 rounded-xl">
+          <button
+            className="bg-green-100 hover:bg-green-600 p-2 m-2 rounded-xl"
+            onClick={() => viewTask(task)}
+          >
             👁️
           </button>
-          <button className="bg-blue-100 hover:bg-blue-600 p-2 m-2 rounded-xl">
+          <button
+            className="bg-blue-100 hover:bg-blue-600 p-2 m-2 rounded-xl"
+            onClick={() => onEdit(task)}
+          >
             ✏️
           </button>
-          <button className="bg-red-100 hover:bg-red-600 p-2 m-2 rounded-xl">
+          <button
+            className="bg-red-100 hover:bg-red-600 p-2 m-2 rounded-xl"
+            onClick={() => onDelete(task)}
+          >
             🗑️
           </button>
         </div>
