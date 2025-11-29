@@ -16,7 +16,7 @@ const Home = () => {
 
         <StatsCard title="Completed" count={8} color="bg-green-50" icon="✔️" />
 
-        <StatsCard t itle="Pending" count={4} color="bg-purple-100" icon="📂" />
+        <StatsCard title="Pending" count={4} color="bg-purple-100" icon="📂" />
       </div>
     </div>
   );
