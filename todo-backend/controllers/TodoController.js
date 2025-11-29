@@ -1,5 +1,6 @@
 import TodoModel from "../models/TodoModel.js";
 
+// get all tasks
 export const getAllTasks = async (req, res) => {
     try {
         const todos = await TodoModel.find();
@@ -9,6 +10,7 @@ export const getAllTasks = async (req, res) => {
     }
 }
 
+// get a specific task
 export const getTaskById = async (req, res) => {
     try {
         const {id} = req.params
@@ -19,7 +21,26 @@ export const getTaskById = async (req, res) => {
     }
 }
 
+// get all Pending tasks
+export const getAllPendingTasks = async (req, res) => {
+    try {
+        const todos = await TodoModel.find({ completed: false });
+        res.json(todos);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
 
+export const getAllCompletedTasks = async (req, res) => {
+    try {
+        const todos = await TodoModel.find({ completed: true });
+        res.json(todos);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+// Create a task 
 export const createTask = async (req, res) => {
     try {
         const todo = await TodoModel.create(req.body);
@@ -28,6 +49,8 @@ export const createTask = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 }
+
+// Edit a task 
 export const updateTask = async (req, res) => {
     try {
         const { id } = req.params
@@ -37,6 +60,25 @@ export const updateTask = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+// Toggle Completion Status 
+export const toggleStatus = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const task = await TodoModel.findById(id);
+        if (!task) return res.status(404).json({ message: "Task not found" });
+
+        task.completed = !task.completed;
+        await task.save();
+
+        res.json(task);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// Delete a task 
 export const deleteTask = async (req, res) => {
     try {
         const { id } = req.params
