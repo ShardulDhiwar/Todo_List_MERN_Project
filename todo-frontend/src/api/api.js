@@ -4,9 +4,12 @@ const api = axios.create({
   baseURL: "http://localhost:3000/api",
 });
 
-export const getTodos = () => api.get("/todos");
-export const getTodoByID =  () => api.get("/todo/${id}");
-export const createTodo = () => api.get("/todo", data);
-export const updateTodo = () => api.get("/todo/${id}", data);
-export const deleteTodo = () => api.get("/todo/${id}");
+export const getAllTasks = () => api.get("/todos");
+export const getTask = (id) => api.get(`/todo/${id}`);
+export const getCompletedTasks = () => api.get("/todos/completed");
+export const getPendingTasks = () => api.get("/todos/pending");
 
+export const createTask = (data) => api.post("/todo", data);
+export const updateTask = (id, data) => api.put(`/todo/${id}`, data);
+export const deleteTask = (id) => api.delete(`/todo/${id}`);
+export const toggleTask = (id) => api.patch(`/todo/${id}/toggle`);
