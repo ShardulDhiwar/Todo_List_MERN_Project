@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const EditTaskModal = ({ task, onClose, onUpdate }) => {
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!title.trim() || !description.trim()) {
+      toast.error("Fields Cannot Be Empty");
+      return;
+    }
+
     onUpdate({ ...task, title, description });
     onClose();
   };
