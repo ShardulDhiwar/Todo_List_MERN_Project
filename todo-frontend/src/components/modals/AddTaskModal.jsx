@@ -3,7 +3,7 @@ import { createTask } from "../../api/api";
 import { useTasks } from "../../context/TaskContext";
 import { toast } from "react-toastify";
 
-const AddTaskModal = ({ onClose, refresh }) => {
+const AddTaskModal = ({ onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -11,7 +11,7 @@ const AddTaskModal = ({ onClose, refresh }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title.trim() || !description.trim()) {
+    if (!title || !description) {
       toast.error("Fields Cannot Be Empty");
       return;
     }

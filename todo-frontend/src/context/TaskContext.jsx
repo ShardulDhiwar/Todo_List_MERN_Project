@@ -50,7 +50,6 @@ export const TaskProvider = ({ children }) => {
   }, []);
 
   return (
-    // <TaskContext.Provider value={{ tasks, dispatch, fetchTask }}>
     <TaskContext.Provider value={{ tasks, dispatch, loading }}>
       {children}
     </TaskContext.Provider>
