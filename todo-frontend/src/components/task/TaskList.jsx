@@ -45,10 +45,9 @@ const TaskList = () => {
 
     try {
       await updateTask(updatedTask._id, updatedTask);
-      toast.success("Task Updated Sucessfully");
+      toast.success("Task Updated Successfully");
     } catch (err) {
-      toast.error("Failed Updating Tasm");
-      console.log("Update failed");
+      toast.error("Failed Updating Task");
     }
   };
 
