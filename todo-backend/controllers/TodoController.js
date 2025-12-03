@@ -21,25 +21,6 @@ export const getTaskById = async (req, res) => {
     }
 }
 
-// get all Pending tasks
-export const getAllPendingTasks = async (req, res) => {
-    try {
-        const todos = await TodoModel.find({ completed: false }).sort({ createdAt: -1 });
-        res.json(todos);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-}
-
-export const getAllCompletedTasks = async (req, res) => {
-    try {
-        const todos = await TodoModel.find({ completed: true }).sort({ createdAt: -1 });
-        res.json(todos);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-}
-
 // Create a task 
 export const createTask = async (req, res) => {
     try {

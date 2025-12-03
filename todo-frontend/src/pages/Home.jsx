@@ -9,7 +9,7 @@ const Home = () => {
   const pendingTasks = totalTasks - completedTasks;
 
   return (
-    <div className="p-6 pb-0">
+    <div className="p-4 md:p-6 pb-0">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatsCard
           title="Total Tasks"

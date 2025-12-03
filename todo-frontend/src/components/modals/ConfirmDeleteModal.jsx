@@ -3,7 +3,7 @@ import React from "react";
 const ConfirmDeleteModal = ({ onClose, onDelete }) => {
   return (
     <div className="fixed inset-0 bg-opacity-40 flex justify-center items-center">
-      <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
+      <div className="bg-white p-4 md:p-6 rounded-lg w-11/12 max-w-xs sm:max-w-sm md:max-w-md shadow-lg">
         <h2 className="text-xl font-bold mb-4 text-center">
           Are you sure you want to delete this task??
         </h2>

@@ -1,24 +1,24 @@
 import React from "react";
 
-const TaskItem = ({ task,onToggle, onEdit, onDelete, viewTask }) => {
+const TaskItem = ({ task, onToggle, onEdit, onDelete, viewTask }) => {
   return (
     <>
-      <div className="flex items-start justify-between border-2 border-gray-300 border-opacity-0 p-4 rounded-4xl mb-3 shadow-lg">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-2 border-gray-300 border-opacity-0 p-4 rounded-4xl mb-3 shadow-lg gap-3">
         {/* left part */}
         <div className="flex items-center gap-3">
           <input
             type="checkbox"
             checked={task.completed}
-            onChange={()=>onToggle( task._id)}
-            className=" w-4 h-4 border-2 border-gray-400 rounded-sm bg-white"
+            onChange={() => onToggle(task._id)}
+            className="w-5 h-5 accent-blue-500"
           />
           <div
             className={`flex-1 ${
               task.completed ? "line-through text-gray-500" : ""
             }`}
           >
-            <h3 className="text-lg font-semibold">{task.title}</h3>
-            <p className="text-gray-600 text-sm w-250 truncate">
+            <h3 className="text-base sm:text-lg font-semibold">{task.title}</h3>
+            <p className="text-gray-600 text-sm sm:text-base w-full sm:w-64 truncate">
               {task.description}
             </p>
           </div>

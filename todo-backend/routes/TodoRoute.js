@@ -1,6 +1,6 @@
 import express from "express";
 import Todo from "../models/TodoModel.js";
-import { createTask, deleteTask, getAllCompletedTasks, getAllPendingTasks, getAllTasks, getTaskById, toggleStatus, updateTask } from "../controllers/TodoController.js";
+import { createTask, deleteTask,  getAllTasks, getTaskById, toggleStatus, updateTask } from "../controllers/TodoController.js";
 
 const router = express.Router();
 
@@ -9,12 +9,6 @@ router.post("/todo", createTask);
 
 // Display All Task
 router.get("/todos", getAllTasks);
-
-// Display All Pending Tasks
-router.get("/todos/pending", getAllPendingTasks);
-
-// Display All Completed Tasks
-router.get("/todos/completed", getAllCompletedTasks);
 
 //Display Specific Task
 router.get("/todo/:id", getTaskById)

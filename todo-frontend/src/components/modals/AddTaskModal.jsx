@@ -1,25 +1,41 @@
 import { useState } from "react";
 import { createTask } from "../../api/api";
+import { useTasks } from "../../context/TaskContext";
+import { toast } from "react-toastify";
 
 const AddTaskModal = ({ onClose, refresh }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  const { dispatch } = useTasks();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title.trim() || !description.trim()) return;
-
-    await createTask({ title, description, completed: false });
-    refresh();
-    onClose(); // close modal
+    if (!title.trim() || !description.trim()) {
+      toast.error("Fields Cannot Be Empty");
+      return;
+    }
+    try {
+      const res = await createTask({
+        title,
+        description,
+        completed: false,
+      });
+      dispatch({ type: "ADD_TASK", payload: res.data });
+      toast.success("Item Added Succesfully");
+      onClose();
+    } catch (error) {
+      toast.error("Failed To Add Tasm");
+      console.log("Add task failed", err);
+    }
   };
 
   return (
     <div className="fixed inset-0 bg-opacity-40 flex justify-center items-center">
-      <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
+      {/* <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg"> */}
+      <div className="bg-white p-4 md:p-6 rounded-lg w-11/12 max-w-xs sm:max-w-sm md:max-w-md shadow-lg">
         <h2 className="text-xl font-bold mb-4 text-center">Add New Task</h2>
-
+        {/* Form taken from Tailwind CSS docs */}
         <form>
           <input
             type="text"
