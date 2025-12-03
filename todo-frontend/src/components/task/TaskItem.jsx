@@ -18,7 +18,7 @@ const TaskItem = ({ task, onToggle, onEdit, onDelete, viewTask }) => {
             }`}
           >
             <h3 className="text-base sm:text-lg font-semibold">{task.title}</h3>
-            <p className="text-gray-600 text-sm sm:text-base w-full sm:w-64 truncate">
+            <p className="text-gray-600 text-sm sm:text-base w-40 sm:w-64 truncate">
               {task.description}
             </p>
           </div>
