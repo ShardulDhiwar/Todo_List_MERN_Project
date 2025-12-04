@@ -9,7 +9,7 @@ import TaskItem from "./TaskItem";
 
 import { deleteTask, toggleTask, updateTask } from "../../api/api";
 import { toast } from "react-toastify";
-import {ListTodo } from "lucide-react";
+import { ListTodo } from "lucide-react";
 
 const TaskList = () => {
   const { tasks, dispatch, loading } = useTasks();
@@ -80,7 +80,7 @@ const TaskList = () => {
   return (
     <>
       <div className="flex justify-center items-center gap-1 pt-4">
-        <ListTodo size={32} color="#8a13ec" />
+        <ListTodo size={32} color="#fff" />
         <h1 className="text-lg sm:text-3xl font-semibold text-white underline">
           MyTodoList
         </h1>
