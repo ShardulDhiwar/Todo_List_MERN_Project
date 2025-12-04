@@ -5,12 +5,11 @@ import ViewTaskModel from "../modals/ViewTaskModal";
 import AddTaskModal from "../modals/AddTaskModal";
 import { useTasks } from "../../context/TaskContext";
 import { useMediaQuery } from "react-responsive";
-import { Rnd } from "react-rnd";
 import TaskItem from "./TaskItem";
 
 import { deleteTask, toggleTask, updateTask } from "../../api/api";
 import { toast } from "react-toastify";
-import { ListChecks } from "lucide-react";
+import {ListTodo } from "lucide-react";
 
 const TaskList = () => {
   const { tasks, dispatch, loading } = useTasks();
@@ -81,7 +80,7 @@ const TaskList = () => {
   return (
     <>
       <div className="flex justify-center items-center gap-1 pt-4">
-        <ListChecks size={32} className="text-white" />
+        <ListTodo size={32} color="#8a13ec" />
         <h1 className="text-lg sm:text-3xl font-semibold text-white underline">
           MyTodoList
         </h1>
