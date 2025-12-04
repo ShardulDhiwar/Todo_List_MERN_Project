@@ -6,14 +6,14 @@ import Navbar from "./components/navbar/Navbar";
 function App() {
 
   return (
-    <>
+    <div className="min-h-screen bg-indigo-500">
       <Navbar />
-      <div className="m-10">
+      <div className="m-10 mb-0 pb-2.5  ">
         <Home />
         <TaskList />
         <ToastContainer position="top-right" autoClose={500} />
       </div>
-    </>
+    </div>
   );
 }
 

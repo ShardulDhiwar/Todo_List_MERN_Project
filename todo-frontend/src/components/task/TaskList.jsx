@@ -10,6 +10,7 @@ import TaskItem from "./TaskItem";
 
 import { deleteTask, toggleTask, updateTask } from "../../api/api";
 import { toast } from "react-toastify";
+import { ListChecks } from "lucide-react";
 
 const TaskList = () => {
   const { tasks, dispatch, loading } = useTasks();
@@ -79,15 +80,20 @@ const TaskList = () => {
 
   return (
     <>
-      <h1 className="text-lg sm:text-xl text-center font-semibold mx-2 mt-4 p-4 pb-0">
-        {tasks.length} Tasks
-      </h1>
+      <div className="flex justify-center items-center gap-1 pt-4">
+        <ListChecks size={32} className="text-white" />
+        <h1 className="text-lg sm:text-3xl font-semibold text-white underline">
+          MyTodoList
+        </h1>
+      </div>
 
       <div className="m-6">
         {loading ? (
-          <div className="text-center text-2xl py-10">Loading tasks...</div>
+          <div className="text-center text-2xl py-10 text-slate-700">
+            Loading tasks...
+          </div>
         ) : tasks.length === 0 ? (
-          <div className="text-center py-10 text-gray-500">No tasks yet</div>
+          <div className="text-center py-10 text-slate-500">No tasks yet</div>
         ) : (
           tasks.map((task) => (
             <TaskItem
@@ -102,7 +108,7 @@ const TaskList = () => {
         )}
       </div>
 
-      {/* View Modal  */}
+      {/* View Modal */}
       {openViewDetails && (
         <ViewTaskModel
           task={selectedTask}
@@ -127,45 +133,21 @@ const TaskList = () => {
         />
       )}
 
-      {/* <button
-        onClick={() => {
-          setOpenAddModal(true);
-        }}
-        className="bg-blue-500 hover:bg-blue-400 text-white font-bold w-full h-full py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-2xl"
-      >
-        + Add Task
-      </button> */}
-
-      {/* ChatGPT code: For making the button draggable  */}
-      {/* DRAGGABLE ADD TASK BUTTON */}
+      {/* Add Task Button */}
       {isMobile ? (
-        // 🔹 Mobile → NO DRAGGING
         <button
           onClick={() => setOpenAddModal(true)}
-          className="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-5 rounded-full shadow-lg"
+          className="fixed bottom-6 right-6 bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 border-b-4 border-indigo-900 hover:border-indigo-700 rounded-lg"
         >
           + Add Task
         </button>
       ) : (
-        // 🔹 Desktop → DRAGGABLE
-        <Rnd
-          default={{
-            x: window.innerWidth - 250,
-            y: window.innerHeight - 250,
-            width: 160,
-            height: 50,
-          }}
-          bounds="window"
-          enableResizing={false}
-          style={{ zIndex: 9999, position: "fixed" }}
+        <button
+          onClick={() => setOpenAddModal(true)}
+          className="fixed bottom-6 right-10 bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-7 border-b-4 border-indigo-900 hover:border-indigo-700 rounded-lg"
         >
-          <button
-            onClick={() => setOpenAddModal(true)}
-            className="bg-blue-500 hover:bg-blue-400 text-white font-bold w-full h-full py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-2xl"
-          >
-            + Add Task
-          </button>
-        </Rnd>
+          + Add Task
+        </button>
       )}
 
       {openAddModal && (
