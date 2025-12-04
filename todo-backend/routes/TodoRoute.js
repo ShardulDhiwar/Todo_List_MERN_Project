@@ -1,5 +1,4 @@
 import express from "express";
-import Todo from "../models/TodoModel.js";
 import { createTask, deleteTask,  getAllTasks, getTaskById, toggleStatus, updateTask } from "../controllers/TodoController.js";
 
 const router = express.Router();
