@@ -3,22 +3,22 @@
 const EditTaskModal = ({ task, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex justify-center items-center z-50">
-      <div className="bg-indigo-500 p-4 md:p-6 rounded-lg w-11/12 max-w-xs sm:max-w-sm md:max-w-md shadow-indigo-950 border-2 border-indigo-50">
-        <h2 className="text-xl font-bold mb-4 text-center">Task Details</h2>
+      <div className="bg-gray-800 p-4 md:p-6 rounded-lg w-11/12 max-w-xs sm:max-w-sm md:max-w-md shadow-indigo-950 border-2 border-indigo-50">
+        <h2 className="text-xl font-bold mb-4 text-white text-center">Task Details</h2>
 
         {/* Form taken from Tailwind CSS docs */}
         <input
           type="text"
           value={task.title}
           disabled
-          className="w-full p-3 border bg-indigo-300 border-gray-300 rounded-xl mb-4 "
+          className="w-full p-3 border bg-gray-300 border-gray-400 rounded-xl mb-4 "
         />
 
         <textarea
           value={task.description}
           disabled
           rows="4"
-          className="w-full p-3 border bg-indigo-300 border-gray-300 rounded-xl mb-4 "
+          className="w-full p-3 border bg-gray-300 border-gray-400 rounded-xl mb-4 "
         />
 
         <div className="flex justify-end">
