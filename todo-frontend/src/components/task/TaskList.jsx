@@ -88,11 +88,11 @@ const TaskList = () => {
 
       <div className="m-6">
         {loading ? (
-          <div className="text-center text-2xl py-10 text-black">
+          <div className="text-center text-2xl py-10 text-white">
             Loading tasks...
           </div>
         ) : tasks.length === 0 ? (
-          <div className="text-center py-10 text-black">No tasks yet</div>
+          <div className="text-center py-10 text-white">No tasks yet</div>
         ) : (
           tasks.map((task) => (
             <TaskItem
