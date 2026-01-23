@@ -16,22 +16,22 @@ const Home = () => {
         <StatsCard
           title="Total Tasks"
           count={totalTasks}
-          color="bg-indigo-400"
-          icon={<List size={40} color="#312c85" />}
+          color="bg-gray-800"
+          icon={<List size={40} color="white" />}
         />
 
         <StatsCard
           title="Completed"
           count={completedTasks}
-          color="bg-indigo-300"
-          icon={<ListCheck size={40} color="#312c85" />}
+          color="bg-gray-800"
+          icon={<ListCheck size={40} color="white" />}
         />
 
         <StatsCard
           title="Pending"
           count={pendingTasks}
-          color="bg-gray-300"
-          icon={<ListX size={40} color="#312c85" />}
+          color="bg-gray-800"
+          icon={<ListX size={40} color="white" />}
         />
       </div>
     </div>

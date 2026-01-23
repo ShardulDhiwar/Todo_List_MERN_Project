@@ -32,7 +32,7 @@ const AddTaskModal = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex justify-center items-center z-50">
-      <div className="bg-indigo-500 p-4 md:p-6 rounded-lg w-11/12 max-w-xs sm:max-w-sm md:max-w-md shadow-indigo-950 border-2 border-indigo-50">
+      <div className="bg-gray-800 p-4 md:p-6 rounded-lg w-11/12 max-w-xs sm:max-w-sm md:max-w-md shadow-indigo-950 border-2 border-indigo-50">
         <h2 className="text-xl text-white font-bold mb-4 text-center">
           Add New Task
         </h2>
@@ -43,16 +43,16 @@ const AddTaskModal = ({ onClose }) => {
             placeholder="Task Title..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-3 border bg-indigo-300 border-gray-300 rounded-xl mb-4 shadow-sm
-             focus:outline-none focus:ring-2 focus:ring-indigo-400 "
+            className="w-full p-3 border bg-gray-300 border-gray-300 rounded-xl mb-4 shadow-sm
+             focus:outline-none focus:ring-2 focus:ring-gray-400 "
           />
           <textarea
             placeholder="Task Description..."
             rows="4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-3 border bg-indigo-300 border-gray-300 rounded-xl mb-4 shadow-sm
-             focus:outline-none focus:ring-2 focus:ring-indigo-400 "
+            className="w-full p-3 border bg-gray-300 border-gray-300 rounded-xl mb-4 shadow-sm
+             focus:outline-none focus:ring-2 focus:ring-gray-400 "
           />
 
           <div className="flex justify-end gap-3">
@@ -67,7 +67,7 @@ const AddTaskModal = ({ onClose }) => {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="bg-indigo-600 hover:bg-indigo-400 text-white font-bold py-2 px-4 border-b-4 border-indigo-700 hover:border-indigo-500 rounded shadow-2xl"
+              className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-black hover:border-black rounded shadow-2xl"
             >
               Add Task
             </button>
