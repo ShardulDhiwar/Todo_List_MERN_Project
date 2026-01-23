@@ -88,11 +88,11 @@ const TaskList = () => {
 
       <div className="m-6">
         {loading ? (
-          <div className="text-center text-2xl py-10 text-slate-700">
+          <div className="text-center text-2xl py-10 text-black">
             Loading tasks...
           </div>
         ) : tasks.length === 0 ? (
-          <div className="text-center py-10 text-slate-500">No tasks yet</div>
+          <div className="text-center py-10 text-black">No tasks yet</div>
         ) : (
           tasks.map((task) => (
             <TaskItem
@@ -136,14 +136,14 @@ const TaskList = () => {
       {isMobile ? (
         <button
           onClick={() => setOpenAddModal(true)}
-          className="fixed bottom-6 right-6 bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 border-b-4 border-indigo-900 hover:border-indigo-700 rounded-lg"
+          className="fixed bottom-6 right-10 bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-7 border-b-4 border-black hover:border-gray-900 rounded-lg"
         >
           + Add Task
         </button>
       ) : (
         <button
           onClick={() => setOpenAddModal(true)}
-          className="fixed bottom-6 right-10 bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-7 border-b-4 border-indigo-900 hover:border-indigo-700 rounded-lg"
+          className="fixed bottom-6 right-10 bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-7 border-b-4 border-black hover:border-gray-900 rounded-lg"
         >
           + Add Task
         </button>
